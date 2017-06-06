@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 400px;
+            margin:100px auto;
+            border:1px solid darkgoldenrod;
+        }
+        .bottom div{
+            width:100%;
+            height: 300px;
+            display: none;
+        }
+        .beijing {
+            background-color: pink;
+        }
+        .bottom .show {
+            display: block;
+        }
+        ul{
+            width: 400px;
+            height: 50px;
+        }
+        li{
+            list-style: none;
+            float: left;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            width: 125px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+    </style>
+    <script>
+        window.onload = function(){
+            var lis = document.querySelectorAll(".top li");
+            var divs = document.getElementById("divs").getElementsByTagName("div");
+            for(var i= 0;i<lis.length;i++)
+            {
+                lis[i].index = i;
+                lis[i].onclick = function(){
+                    //让li的类名为空
+                    for(var j=0;j<lis.length;j++)
+                    {
+                        lis[j].className = "";
+                        divs[j].className = "";
+                    }
+                    // 当前的那个按钮 的添加 类名
+                    this.className = "beijing";
+                    //先隐藏下面所有的 div盒子
+                    //留下中意的那个 跟点击的序号有关系的
+                    divs[this.index].className = "show";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="top">
+        <ul>
+            <li><a href="#">jq</a></li>
+            <li><a href="#">js</a></li>
+            <li><a href="#">jj</a></li>
+        </ul>
+    </div>
+    <div class="bottom" id="divs">
+        <div class="show">我是jq</div>
+        <div>我是js</div>
+        <div>我是jj</div>
+
+    </div>
+</div>
+
+</body>
+<html>
